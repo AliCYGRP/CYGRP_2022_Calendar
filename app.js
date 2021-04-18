@@ -108,35 +108,38 @@ generateCalendar = (month, year) => {
         }
       });
       console.log(status_code);
-      //indian holiday
-      indian_holiday.forEach((e, index) => {
-        if (
-          month == indian_holiday[index][0] &&
-          date == indian_holiday[index][1]
-        ) {
-          day.classList.add("indian-date");
-          day.onclick = () => {
-            document.getElementById("calendar-footer").innerHTML =
-              "India is celebrating " + indian_holiday[index][2];
-            indian_holiday_string += indian_holiday[index][2];
-          };
-        }
-      });
+      //If not coinciding
+      if (status_code == 0) {
+        //indian holiday
+        indian_holiday.forEach((e, index) => {
+          if (
+            month == indian_holiday[index][0] &&
+            date == indian_holiday[index][1]
+          ) {
+            day.classList.add("indian-date");
+            day.onclick = () => {
+              document.getElementById("calendar-footer").innerHTML =
+                "India is celebrating " + indian_holiday[index][2];
+              indian_holiday_string += indian_holiday[index][2];
+            };
+          }
+        });
 
-      // dallas holiday
-      dallas_holiday.forEach((e, index) => {
-        if (
-          month == dallas_holiday[index][0] &&
-          date == dallas_holiday[index][1]
-        ) {
-          day.classList.add("dallas-date");
-          day.onclick = () => {
-            document.getElementById("calendar-footer").innerHTML =
-              "Dallas is celebrating " + dallas_holiday[index][2];
-            dallas_holiday_string += dallas_holiday[index][2];
-          };
-        }
-      });
+        // dallas holiday
+        dallas_holiday.forEach((e, index) => {
+          if (
+            month == dallas_holiday[index][0] &&
+            date == dallas_holiday[index][1]
+          ) {
+            day.classList.add("dallas-date");
+            day.onclick = () => {
+              document.getElementById("calendar-footer").innerHTML =
+                "Dallas is celebrating " + dallas_holiday[index][2];
+              dallas_holiday_string += dallas_holiday[index][2];
+            };
+          }
+        });
+      }
     }
     calendar_days.appendChild(day);
   }
