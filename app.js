@@ -15,6 +15,20 @@ const month_names = [
   "December",
 ];
 
+// Month, Day, Occasion
+const dallas_holiday = [
+  [0, 1, "New Year's Day"],
+  [3, 2, "Good Friday"],
+  [4, 31, "Memorial Day"],
+  [6, 5, "Independence Day (observed)"],
+  [8, 6, "Labor Day"],
+  [10, 25, "Thanksgiving"],
+  [10, 26, "Thanksgiving"],
+  [11, 24, "Christmas Eve"],
+  [11, 27, "Christmas (observed)"],
+  [11, 31, "New Year’s Eve"],
+];
+
 generateCalendar = (month, year) => {
   let calendar_days = calendar.querySelector(".calendar-days");
 
