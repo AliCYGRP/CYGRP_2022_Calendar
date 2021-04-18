@@ -112,6 +112,17 @@ body {
   display: none;
 }
 
+.calendar-days div.dallas-date,
+.calendar-days div.dallas-date:hover {
+  background-color: red;
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.calendar-days div.dallas-date span {
+  display: none;
+}
+
 .month-picker {
   padding: 5px 10px;
   border-radius: 10px;

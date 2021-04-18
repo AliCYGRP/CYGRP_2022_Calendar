@@ -1,5 +1,7 @@
 let calendar = document.querySelector(".calendar");
 
+let calendar_footer_string = "";
+
 const month_names = [
   "January",
   "February",
@@ -60,17 +62,28 @@ generateCalendar = (month, year) => {
         document.getElementById("calendar-footer").innerHTML =
           "<em>Nothing special this day</em>";
       };
-
-      if (
-        i - first_day.getDay() + 1 === currDate.getDate() &&
-        month === currDate.getMonth()
-      ) {
+      let date = i - first_day.getDay() + 1;
+      if (date === currDate.getDate() && month === currDate.getMonth()) {
         day.classList.add("curr-date");
         day.onclick = () => {
           document.getElementById("calendar-footer").innerHTML =
             "Yesterday is History,<br>tomorrow is a mystery,<br>and today is a gift... <br>that's why they call it <b>present</b><br>~Master Oogway";
         };
       }
+      // dallas holiday
+      dallas_holiday.forEach((e, index) => {
+        if (
+          month == dallas_holiday[index][0] &&
+          date == dallas_holiday[index][1]
+        ) {
+          day.classList.add("dallas-date");
+          day.onclick = () => {
+            document.getElementById("calendar-footer").innerHTML =
+              "Dallas is celebrating " + dallas_holiday[index][2];
+          };
+        }
+      });
+      //indian holiday
     }
     calendar_days.appendChild(day);
   }
@@ -104,3 +117,19 @@ generateCalendar(curr_month.value, 2021);
 function myFunction() {
   document.getElementById("calendar-footer").innerHTML = "Something Special";
 }
+
+// function dallas_function(month, date) {
+//   //   console.log("In dallas function\n");
+//   dallas_holiday.forEach((e, index) => {
+//     if (month == dallas_holiday[index][0] && date == dallas_holiday[index][1]) {
+//       calendar_footer_string = dallas_holiday[index][2];
+//       console.log("date=" + date + "dallas function returning true\n");
+//       return 1;
+//     }
+//   });
+//   return 0;
+// }
+
+// function temp(x) {
+//   return x + 4;
+// }
