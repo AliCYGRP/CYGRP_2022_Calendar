@@ -58,7 +58,7 @@ generateCalendar = (month, year) => {
 
       day.onclick = () => {
         document.getElementById("calendar-footer").innerHTML =
-          "Nothing Special Today";
+          "<em>Nothing special this day</em>";
       };
 
       if (
