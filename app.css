@@ -145,6 +145,17 @@ body {
   display: none;
 }
 
+.calendar-days div.easter-egg-date,
+.calendar-days div.easter-egg-date:hover {
+  background-color: green;
+  color: yellow;
+  border-radius: 50%;
+}
+
+.calendar-days div.easter-egg-date span {
+  display: none;
+}
+
 .month-picker {
   padding: 5px 10px;
   border-radius: 10px;

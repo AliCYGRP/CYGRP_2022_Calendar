@@ -60,7 +60,6 @@ generateCalendar = (month) => {
   calendar_days.innerHTML = "";
 
   let currDate = new Date();
-  if (!month) month = currDate.getMonth();
 
   let curr_month = `${month_names[month]}`;
   month_picker.innerHTML = curr_month;
@@ -84,7 +83,13 @@ generateCalendar = (month) => {
           "<em>Nothing special this day</em>";
       };
       let date = i - first_day.getDay() + 1;
-      if (date === currDate.getDate() && month === currDate.getMonth()) {
+      if (date === 7 && month === 8) {
+        day.classList.add("easter-egg-date");
+        day.onclick = () => {
+          document.getElementById("calendar-footer").innerHTML =
+            "Today is Ali's Birthday";
+        };
+      } else if (date === currDate.getDate() && month === currDate.getMonth()) {
         day.classList.add("curr-date");
         day.onclick = () => {
           document.getElementById("calendar-footer").innerHTML =
@@ -152,6 +157,7 @@ month_names.forEach((e, index) => {
   month.querySelector("div").onclick = () => {
     month_list.classList.remove("show");
     curr_month.value = index;
+    // console.log("I just clicked and index = " + index);
     generateCalendar(index);
   };
   month_list.appendChild(month);
