@@ -52,7 +52,7 @@ const dallas_holiday = [
   [11, 31, "New Year’s Eve"],
 ];
 
-generateCalendar = (month, year) => {
+generateCalendar = (month) => {
   let calendar_days = calendar.querySelector(".calendar-days");
 
   let days_of_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -107,7 +107,6 @@ generateCalendar = (month, year) => {
           status_code = 1;
         }
       });
-      console.log(status_code);
       //If not coinciding
       if (status_code == 0) {
         //indian holiday
@@ -153,7 +152,7 @@ month_names.forEach((e, index) => {
   month.querySelector("div").onclick = () => {
     month_list.classList.remove("show");
     curr_month.value = index;
-    generateCalendar(index, 2021);
+    generateCalendar(index);
   };
   month_list.appendChild(month);
 });
@@ -168,7 +167,7 @@ let currDate = new Date();
 
 let curr_month = { value: currDate.getMonth() };
 
-generateCalendar(curr_month.value, 2021);
+generateCalendar(curr_month.value);
 
 function myFunction() {
   document.getElementById("calendar-footer").innerHTML = "Something Special";
