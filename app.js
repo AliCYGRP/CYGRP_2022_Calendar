@@ -1,6 +1,7 @@
 let calendar = document.querySelector(".calendar");
 
-let calendar_footer_string = "";
+var indian_holiday_string = "";
+var dallas_holiday_string = "";
 
 const month_names = [
   "January",
@@ -15,6 +16,26 @@ const month_names = [
   "October",
   "November",
   "December",
+];
+
+const indian_dallas_holiday = [
+  [0, 1, "New Year's Day"],
+  [3, 2, "Good Friday"],
+  [11, 27, "Christmas (observed)"],
+];
+
+// Month, Day, Occasion
+const indian_holiday = [
+  [0, 1, "New Year's Day"],
+  [0, 26, "Republic Day"],
+  [2, 29, "Holi"],
+  [3, 2, "Good Friday"],
+  [4, 13, "Ramzan/ Eid-ul-Fitr"],
+  [7, 30, "Janmashtami"],
+  [9, 15, "Dussehra"],
+  [10, 4, "Diwali"],
+  [10, 5, "Diwali"],
+  [11, 27, "Christmas (observed)"],
 ];
 
 // Month, Day, Occasion
@@ -70,6 +91,38 @@ generateCalendar = (month, year) => {
             "Yesterday is History,<br>tomorrow is a mystery,<br>and today is a gift... <br>that's why they call it <b>present</b><br>~Master Oogway";
         };
       }
+      let status_code = 0;
+      //common holiday
+      indian_dallas_holiday.forEach((e, index) => {
+        if (
+          month == indian_dallas_holiday[index][0] &&
+          date == indian_dallas_holiday[index][1]
+        ) {
+          day.classList.add("indian-dallas-date");
+          day.onclick = () => {
+            document.getElementById("calendar-footer").innerHTML =
+              "India and Dallas are celebrating " +
+              indian_dallas_holiday[index][2];
+          };
+          status_code = 1;
+        }
+      });
+      console.log(status_code);
+      //indian holiday
+      indian_holiday.forEach((e, index) => {
+        if (
+          month == indian_holiday[index][0] &&
+          date == indian_holiday[index][1]
+        ) {
+          day.classList.add("indian-date");
+          day.onclick = () => {
+            document.getElementById("calendar-footer").innerHTML =
+              "India is celebrating " + indian_holiday[index][2];
+            indian_holiday_string += indian_holiday[index][2];
+          };
+        }
+      });
+
       // dallas holiday
       dallas_holiday.forEach((e, index) => {
         if (
@@ -80,10 +133,10 @@ generateCalendar = (month, year) => {
           day.onclick = () => {
             document.getElementById("calendar-footer").innerHTML =
               "Dallas is celebrating " + dallas_holiday[index][2];
+            dallas_holiday_string += dallas_holiday[index][2];
           };
         }
       });
-      //indian holiday
     }
     calendar_days.appendChild(day);
   }
@@ -117,19 +170,3 @@ generateCalendar(curr_month.value, 2021);
 function myFunction() {
   document.getElementById("calendar-footer").innerHTML = "Something Special";
 }
-
-// function dallas_function(month, date) {
-//   //   console.log("In dallas function\n");
-//   dallas_holiday.forEach((e, index) => {
-//     if (month == dallas_holiday[index][0] && date == dallas_holiday[index][1]) {
-//       calendar_footer_string = dallas_holiday[index][2];
-//       console.log("date=" + date + "dallas function returning true\n");
-//       return 1;
-//     }
-//   });
-//   return 0;
-// }
-
-// function temp(x) {
-//   return x + 4;
-// }

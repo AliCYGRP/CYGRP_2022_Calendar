@@ -123,6 +123,28 @@ body {
   display: none;
 }
 
+.calendar-days div.indian-date,
+.calendar-days div.indian-date:hover {
+  background-color: #ff9933;
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.calendar-days div.indian-date span {
+  display: none;
+}
+
+.calendar-days div.indian-dallas-date,
+.calendar-days div.indian-dallas-date:hover {
+  background: linear-gradient(90deg, #ff9933 50%, red 50%);
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.calendar-days div.indian-dallas-date span {
+  display: none;
+}
+
 .month-picker {
   padding: 5px 10px;
   border-radius: 10px;
