@@ -159,6 +159,7 @@ month_names.forEach((e, index) => {
     curr_month.value = index;
     // console.log("I just clicked and index = " + index);
     generateCalendar(index);
+    document.getElementById("calendar-footer").innerHTML = "";
   };
   month_list.appendChild(month);
 });
