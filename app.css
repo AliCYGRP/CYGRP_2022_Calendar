@@ -145,13 +145,16 @@ body {
   pointer-events: none;
 }
 
-.month-list.show {
+.show {
   transform: scale(1);
   visibility: visible;
   pointer-events: visible;
   transition: all 0.2s ease-in-out;
 }
-
+/* 
+> means immediate children 
+so here .month-list > div 
+means apply below styling if div is children of monthList */
 .month-list > div {
   display: grid;
   place-items: center;
