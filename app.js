@@ -55,11 +55,21 @@ generateCalendar = (month, year) => {
                             <span></span>
                             <span></span>
                             <span></span>`;
+
+      day.onclick = () => {
+        document.getElementById("calendar-footer").innerHTML =
+          "Nothing Special Today";
+      };
+
       if (
         i - first_day.getDay() + 1 === currDate.getDate() &&
         month === currDate.getMonth()
       ) {
         day.classList.add("curr-date");
+        day.onclick = () => {
+          document.getElementById("calendar-footer").innerHTML =
+            "Yesterday is History,<br>tomorrow is a mystery,<br>and today is a gift... <br>that's why they call it <b>present</b><br>~Master Oogway";
+        };
       }
     }
     calendar_days.appendChild(day);
@@ -90,3 +100,7 @@ let currDate = new Date();
 let curr_month = { value: currDate.getMonth() };
 
 generateCalendar(curr_month.value, 2021);
+
+function myFunction() {
+  document.getElementById("calendar-footer").innerHTML = "Something Special";
+}
