@@ -83,7 +83,13 @@ generateCalendar = (month) => {
           "<em>Nothing special this day</em>";
       };
       let date = i - first_day.getDay() + 1;
-      if (date === 7 && month === 8) {
+      if (date === 30 && month === 5) {
+        day.classList.add("sumedha-date");
+        day.onclick = () => {
+          document.getElementById("calendar-footer").innerHTML =
+            "Today is Sumedha's Birthday!!!";
+        };
+      } else if (date === 7 && month === 8) {
         day.classList.add("easter-egg-date");
         day.onclick = () => {
           document.getElementById("calendar-footer").innerHTML =
