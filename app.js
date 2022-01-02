@@ -18,39 +18,24 @@ const month_names = [
   "December",
 ];
 
-const indian_dallas_holiday = [
-  [0, 1, "New Year's Day"],
-  [3, 2, "Good Friday"],
-  [11, 27, "Christmas (observed)"],
-];
+const indian_dallas_holiday = [];
 
 // Month, Day, Occasion
 const indian_holiday = [
-  [0, 1, "New Year's Day"],
+  [0, 3, "New Year's Day"],
   [0, 26, "Republic Day"],
-  [2, 29, "Holi"],
-  [3, 2, "Good Friday"],
-  [4, 13, "Ramzan/ Eid-ul-Fitr"],
-  [7, 30, "Janmashtami"],
-  [9, 15, "Dussehra"],
-  [10, 4, "Diwali"],
-  [10, 5, "Diwali"],
-  [11, 27, "Christmas (observed)"],
+  [2, 18, "Holi"],
+  [3, 15, "Good Friday"],
+  [4, 3, "Ramzan/ Eid-ul-Fitr"],
+  [7, 15, "Independence Day"],
+  [10, 5, "Dussehra"],
+  [10, 24, "Diwali"],
+  [10, 25, "Diwali"],
+  [11, 26, "Christmas (observed)"],
 ];
 
 // Month, Day, Occasion
-const dallas_holiday = [
-  [0, 1, "New Year's Day"],
-  [3, 2, "Good Friday"],
-  [4, 31, "Memorial Day"],
-  [6, 5, "Independence Day (observed)"],
-  [8, 6, "Labor Day"],
-  [10, 25, "Thanksgiving"],
-  [10, 26, "Thanksgiving"],
-  [11, 24, "Christmas Eve"],
-  [11, 27, "Christmas (observed)"],
-  [11, 31, "New Year’s Eve"],
-];
+const dallas_holiday = [];
 
 generateCalendar = (month) => {
   let calendar_days = calendar.querySelector(".calendar-days");
@@ -83,13 +68,7 @@ generateCalendar = (month) => {
           "<em>Nothing special this day</em>";
       };
       let date = i - first_day.getDay() + 1;
-      if (date === 30 && month === 5) {
-        day.classList.add("sumedha-date");
-        day.onclick = () => {
-          document.getElementById("calendar-footer").innerHTML =
-            "Today is Sumedha's Birthday!!!";
-        };
-      } else if (date === 7 && month === 8) {
+      if (date === 7 && month === 8) {
         day.classList.add("easter-egg-date");
         day.onclick = () => {
           document.getElementById("calendar-footer").innerHTML =
